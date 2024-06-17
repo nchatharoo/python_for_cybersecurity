@@ -35,3 +35,10 @@ def receive_from(connection):
     return buffer
 
         
+def request_handler(buffer):
+    # perform packet modifications
+    return buffer
+
+def response_handler(buffer):
+    # perform packet modifications
+    return buffer
