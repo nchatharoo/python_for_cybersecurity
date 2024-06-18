@@ -48,6 +48,28 @@ class ICMP:
         self.id = header[3]
         self.seq = header[4]
 
+class TCP:
+    def __init__(self, buff):
+        header = struct.unpack('!HHLLBBHHH', buff)
+        self.src_port = header[0]
+        self.dst_port = header[1]
+        self.sequence = header[2]
+        self.acknowledgment = header[3]
+        self.offset_reserved = header[4]
+        self.tcp_flags = header[5]
+        self.window = header[6]
+        self.checksum = header[7]
+        self.urgent_pointer = header[8]
+        self.offset = (self.offset_reserved >> 4) * 4
+
+class UDP:
+    def __init__(self, buff):
+        header = struct.unpack('!HHHH', buff)
+        self.src_port = header[0]
+        self.dst_port = header[1]
+        self.length = header[2]
+        self.checksum = header[3]
+
 # this sprays out UDP datagrams with our magic message
 def udp_sender():
     with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as sender:
@@ -94,6 +116,15 @@ class Scanner:
                                 if tgt != self.host and tgt not in hosts_up:
                                     hosts_up.add(str(ip_header.src_address))
                                     print(f'Host Up: {tgt}') 
+                elif ip_header.protocol == "TCP":
+                    buf = raw_buffer[offset:offset + 20]
+                    tcp_header = TCP(buf)
+                    print(f'TCP Packet -> Source Port: {tcp_header.src_port}, Destination Port: {tcp_header.dst_port}')
+                elif ip_header.protocol == "UDP":
+                    buf = raw_buffer[offset:offset + 8]
+                    udp_header = UDP(buf)
+                    print(f'UDP Packet -> Source Port: {udp_header.src_port}, Destination Port: {udp_header.dst_port}')
+        
         # handle CTRL-C
         except KeyboardInterrupt: 
             if os.name == 'nt':
