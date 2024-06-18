@@ -62,10 +62,22 @@ def sniff(host):
                 raw_buffer = sniffer.recvfrom(65535)[0]
                 # create an IP header from the first 20 bytes
                 ip_header = IP(raw_buffer[0:20])
-                # print the detected protocol and hosts
-                print('Protocol: %s %s -> %s' % (ip_header.protocol,
+                # Capture the ICMP protocol 
+                if ip_header.protocol == "ICMP":
+                    # print the detected protocol and hosts
+                    print('Protocol: %s %s -> %s' % (ip_header.protocol,
                                                     ip_header.src_address,
                                                     ip_header.dst_address))
+                    
+                    print(f'Version: {ip_header.ver}')
+                    print(f'Header Length: {ip_header.ihl} TTL: {ip_header.ttl}')
+
+                    # Calculate where our ICMP packet starts
+                    offset = ip_header.ihl * 4
+                    buf = raw_buffer[offset:offset + 8]
+                    # Create our ICMP structure
+                    icmp_header = ICMP(buf)
+                    print('ICMP -> Type: %s Code: %s\n' %(icmp_header.type, icmp_header.code))
 
         except KeyboardInterrupt:
             # if we're on Windows, turn off promiscuous mode
