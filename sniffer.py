@@ -32,7 +32,7 @@ class IP:
             print('%s No protocol for %s' % (e, self.protocol_num))
             self.protocol = str(self.protocol_num)
 
-    def sniff(host):
+def sniff(host):
         # should look familiar from previous example
         if os.name == 'nt':
             socket_protocol = socket.IPPROTO_IP
@@ -69,4 +69,4 @@ if __name__ == '__main__':
         host = sys.argv[1]
     else:
         host = '192.168.1.25'
-    IP.sniff(host)
+    sniff(host)
