@@ -20,6 +20,15 @@ Welcome to my Python networking and cybersecurity scripts repository! This repos
 5. **TCP Proxy** (`TCP_proxy.py`):
    - A script that sets up a proxy to forward TCP traffic between a local and a remote host. This proxy can be used for intercepting and modifying traffic for analysis and testing. It includes functions to handle requests and responses, making it useful for understanding and manipulating protocol communications.
 
+6. **SSH Command Execution** (`ssh_cmd.py`):
+   - This script uses the Paramiko library to execute commands on a remote server over SSH. It demonstrates how to establish an SSH connection, authenticate, and execute a command on the remote server.
+
+7. **SSH Remote Command Execution** (`ssh_rcmd.py`):
+   - This script sets up an SSH connection and allows for the execution of remote commands interactively. It maintains a session to handle multiple commands.
+
+8. **SSH Server** (`ssh_server.py`):
+   - This script sets up a simple SSH server using Paramiko that listens for connections, authenticates users, and executes commands sent by the client.
+
 ## Motivation
 
 I am passionate about learning and growing in the field of cybersecurity. Through these scripts, I aim to deepen my understanding of network protocols, socket programming, and various cybersecurity techniques. This repository serves as a testament to my dedication and motivation to enhance my skills and contribute to the cybersecurity community.
@@ -30,34 +39,11 @@ To run any of these scripts, you will need Python installed on your system. You 
 
 ### Running the Scripts
 
-1. **Clone the repository**:
+**Clone the repository**:
 
    ```git git@github.com:nchatharoo/python_networking.git```
    
    ```cd python_networking```
-   
-
-2. **Run the desired script**:
-   - TCP Client:
-     ```
-     python3 TCP_client.py
-     ```
-   - UDP Client:
-     ```
-     python3 UDP_client.py
-     ```
-   - Netcat:
-     ```
-     python3 netcat.py
-     ```
-   - TCP Server:
-     ```
-     python3 TCP_server.py
-     ```
-  - TCP Proxy:
-     ```
-     sudo python3 TCP_proxy.py [local_host] [local_port] [remote_host] [remote_port] [receive_first]
-     ```
 
 ## Usage
 
@@ -104,6 +90,30 @@ To run any of these scripts, you will need Python installed on your system. You 
 - Example usage:
   ```
   sudo python3 TCP_proxy.py local.IP 21 remote.IP 21 True
+  ```
+
+### SSH Command Execution
+
+- Executes a command on a remote server over SSH.
+- Example usage:
+  ```
+  spython3 ssh_cmd.py
+  ```
+
+### SSH Remote Command Execution
+
+- Sets up an SSH connection and allows for interactive remote command execution.
+- Example usage:
+  ```
+  spython3 ssh_rcmd.py
+  ```
+
+### SSH Server
+
+- Sets up a simple SSH server that listens for connections and authenticates users.
+- Example usage:
+  ```
+  spython3 ssh_server.py
   ```
 
 ## Contributing
