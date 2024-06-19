@@ -29,6 +29,9 @@ Welcome to my Python networking and cybersecurity scripts repository! This repos
 8. **SSH Server** (`ssh_server.py`):
    - This script sets up a simple SSH server using Paramiko that listens for connections, authenticates users, and executes commands sent by the client.
 
+9. **Network Scanner** (`scanner.py`):
+   - A network scanner to discover active hosts using UDP packets and listening for ICMP, TCP and UDP responses.
+
 ## Motivation
 
 I am passionate about learning and growing in the field of cybersecurity. Through these scripts, I aim to deepen my understanding of network protocols, socket programming, and various cybersecurity techniques. This repository serves as a testament to my dedication and motivation to enhance my skills and contribute to the cybersecurity community.
@@ -97,7 +100,7 @@ To run any of these scripts, you will need Python installed on your system. You 
 - Executes a command on a remote server over SSH.
 - Example usage:
   ```
-  spython3 ssh_cmd.py
+  python3 ssh_cmd.py
   ```
 
 ### SSH Remote Command Execution
@@ -105,7 +108,7 @@ To run any of these scripts, you will need Python installed on your system. You 
 - Sets up an SSH connection and allows for interactive remote command execution.
 - Example usage:
   ```
-  spython3 ssh_rcmd.py
+  python3 ssh_rcmd.py
   ```
 
 ### SSH Server
@@ -113,7 +116,15 @@ To run any of these scripts, you will need Python installed on your system. You 
 - Sets up a simple SSH server that listens for connections and authenticates users.
 - Example usage:
   ```
-  spython3 ssh_server.py
+  python3 ssh_server.py
+  ```
+
+### Network Scanner
+
+- The script sends UDP datagrams with a specific message to all IP addresses in a subnet and listens for ICMP "Destination Unreachable" responses to determine active hosts. It also decodes TCP and UDP packets.
+- Example usage:
+  ```
+  python3 scanner.py
   ```
 
 ## Contributing
