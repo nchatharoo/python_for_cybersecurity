@@ -10,7 +10,7 @@ def packet_callback(packet):
 
 def main():
     sniff(filter='tcp port 110 or tcp port 25 or tcp port 143', # common mail ports
-             prn=packet_callback, store=0, iface='lo0')
+             prn=packet_callback, store=0)
 
 if __name__ == '__main__':
      main()
