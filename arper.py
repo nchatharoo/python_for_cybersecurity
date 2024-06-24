@@ -8,7 +8,9 @@ def get_mac(targetip):
     packet = Ether(dst='ff:ff:ff:ff:ff:ff')/ARP(op="who-has", pdst=targetip)
     resp, _ = srp(packet, timeout=2, retry=10, verbose=False)
     for _, r in resp:
+        print(f"Obtained MAC address for {targetip}: {r[Ether].src}")
         return r[Ether].src
+    print(f"Failed to obtain MAC address for {targetip}")
     return None
 
 class Arper:
@@ -20,6 +22,10 @@ class Arper:
         self.interface = interface
         conf.iface = interface
         conf.verb = 0
+
+        if not self.victimmac or not self.gatewaymac:
+            print(f"Failed to obtain MAC addresses for victim or gateway.")
+            sys.exit(1)
 
         print(f'Initialized {interface}:')
         print(f'Gateway {gateway} is at {self.gatewaymac}.')
