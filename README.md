@@ -35,6 +35,9 @@ Welcome to my Python networking and cybersecurity scripts repository! This repos
 10. **ARP Poisoning** (`arper.py`):
    - A script designed for ARP poisoning attacks. It allows an attacker to intercept and manipulate network traffic between a victim and the gateway, effectively placing the attacker in the middle of the communication stream (man-in-the-middle attack)
 
+11. **Email Sniffer** (`mail_sniffer.py`):
+   - This script uses Scapy to sniff network traffic on common email ports and looks for any packets containing the keywords 'user' or 'pass' (for testing purpose). When such packets are found, it prints the destination IP and the payload, which may include usernames and passwords being transmitted over the network.
+
 ## Motivation
 
 I am pursuing a career transition into cybersecurity. My goal is to leverage my programming skills and knowledge  to contribute to the field of cybersecurity. This repository serves as a testament to my dedication and motivation to enhance my skills and to prepare myself for a professional role in this exciting and vital domain.
@@ -142,6 +145,16 @@ To run any of these scripts, you will need Python installed on your system. You 
 - Example usage:
   ```
   sudo python arper.py <victim_ip> <gateway_ip> <interface>
+  ```
+
+### Email Sniffer
+
+- **Packet Sniffing**: The script captures TCP packets on ports 110 (POP3), 25 (SMTP), and 143 (IMAP).
+- **Credential Detection**: It scans the payload of these packets for 'user' or 'pass' keywords, indicating potential usernames and passwords being transmitted.
+- **Logging**: When such keywords are found, it logs the destination IP address and the packet payload for further analysis.
+- Example usage:
+  ```
+  sudo python mail_sniffer.py
   ```
 
 ## Contributing
