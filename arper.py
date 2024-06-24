@@ -5,7 +5,11 @@ import sys
 import time
 
 def get_mac(targetip):
-    pass
+    packet = Ether(dst='ff:ff:ff:ff:ff:ff')/ARP(op="who-has", pdst=targetip)
+    resp, _ = srp(packet, timeout=2, retry=10, verbose=False)
+    for _, r in resp:
+        return r[Ether].src
+    return None
 
 class Arper:
     def __init__(self, victim, gateway, interface='en0'):
