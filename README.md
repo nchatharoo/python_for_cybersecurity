@@ -39,6 +39,10 @@ Welcome to my Python networking and cybersecurity scripts repository! This repos
 
 I am pursuing a career transition into cybersecurity. My goal is to leverage my programming skills and knowledge  to contribute to the field of cybersecurity. This repository serves as a testament to my dedication and motivation to enhance my skills and to prepare myself for a professional role in this exciting and vital domain.
 
+## Important Note
+
+Use these scripts only in a controlled environment and with proper authorization. Unauthorized use of these scripts on networks you do not own or have explicit permission to test is illegal and unethical.
+
 ## Getting Started
 
 To run any of these scripts, you will need Python installed on your system. You can download Python from [python.org](https://www.python.org/).
