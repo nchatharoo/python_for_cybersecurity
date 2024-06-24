@@ -134,7 +134,7 @@ To run any of these scripts, you will need Python installed on your system. You 
 
 - The script sends ARP responses to both the victim and the gateway, making them believe that the attacker's MAC address is the one associated with the other's IP address.
 - **Packet Sniffing**: The script captures packets from the victim, allowing the attacker to inspect the intercepted traffic.
-- **ARP Table Restoration**: After the attack, the script restores the original ARP tables of the victim and the gateway to avoid detection and network issues.
+- **ARP Table Restoration**: After the attack, the script restores the original ARP tables of the victim and the gateway to avoid detection and network issues. You should see an arper.pcap file in the same directory
 - Example usage:
   ```
   sudo python arper.py <victim_ip> <gateway_ip> <interface>
