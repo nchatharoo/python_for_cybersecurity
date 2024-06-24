@@ -32,6 +32,9 @@ Welcome to my Python networking and cybersecurity scripts repository! This repos
 9. **Network Scanner** (`scanner.py`):
    - A network scanner to discover active hosts using UDP packets and listening for ICMP, TCP and UDP responses.
 
+10. **ARP Poisoning** (`arper.py`):
+   - A script designed for ARP poisoning attacks. It allows an attacker to intercept and manipulate network traffic between a victim and the gateway, effectively placing the attacker in the middle of the communication stream (man-in-the-middle attack)
+
 ## Motivation
 
 I am passionate about learning and growing in the field of cybersecurity. Through these scripts, I aim to deepen my understanding of network protocols, socket programming, and various cybersecurity techniques. This repository serves as a testament to my dedication and motivation to enhance my skills and contribute to the cybersecurity community.
@@ -125,6 +128,16 @@ To run any of these scripts, you will need Python installed on your system. You 
 - Example usage:
   ```
   python3 scanner.py
+  ```
+
+### ARP poisoning
+
+- The script sends ARP responses to both the victim and the gateway, making them believe that the attacker's MAC address is the one associated with the other's IP address.
+- **Packet Sniffing**: The script captures packets from the victim, allowing the attacker to inspect the intercepted traffic.
+- **ARP Table Restoration**: After the attack, the script restores the original ARP tables of the victim and the gateway to avoid detection and network issues.
+- Example usage:
+  ```
+  sudo python arper.py <victim_ip> <gateway_ip> <interface>
   ```
 
 ## Contributing
