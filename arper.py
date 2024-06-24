@@ -22,7 +22,7 @@ class Arper:
         conf.verb = 0
 
         print(f'Initialized {interface}:')
-        print(f'Gateway {gateway} is at {self.gateway}.')
+        print(f'Gateway {gateway} is at {self.gatewaymac}.')
         print(f'Victim {victim} is at {self.victimmac}.')
         print('-'*30)
 
