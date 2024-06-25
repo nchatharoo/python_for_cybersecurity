@@ -5,3 +5,5 @@ import re
 import sys
 import zlib
 
+OUTDIR = '/root/Desktop/pictures'
+PCAPS = '/root/Downloads'
