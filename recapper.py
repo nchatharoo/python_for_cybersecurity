@@ -22,3 +22,22 @@ def get_header(payload):
     if 'Content-Type' not in header:
         return None
     return header
+
+def extract_content(Response, content_name='image'):
+    pass
+
+class Recapper:
+    def __init__(self, fname):
+        pass
+
+    def get_response(self):
+        pass
+
+    def write(self, content_name):
+        pass
+
+if __name__ == '__main__':
+    pfile = os.path.join(PCAPS, 'pcap.pcap')
+    recapper = Recapper(pfile)
+    recapper.get_response()
+    recapper.write('image')
