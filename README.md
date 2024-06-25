@@ -1,5 +1,5 @@
 
-# Python Networking and Cybersecurity Scripts
+# Python cybersecurity scripts
 
 Welcome to my Python networking and cybersecurity scripts repository! This repository contains a collection of Python scripts that I have developed to enhance my skills and knowledge in the field of cybersecurity. Each script demonstrates fundamental concepts and techniques used in network programming and cybersecurity.
 
