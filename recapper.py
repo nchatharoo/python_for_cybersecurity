@@ -38,7 +38,9 @@ def extract_content(Response, content_name='image'):
 
 class Recapper:
     def __init__(self, fname):
-        pass
+        pcap = rdpcap(fname)
+        self.sessions = pcap.sessions()
+        self.responses = []
 
     def get_response(self):
         pass
