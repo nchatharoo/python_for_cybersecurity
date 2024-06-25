@@ -7,3 +7,6 @@ import zlib
 
 OUTDIR = '/root/Desktop/pictures'
 PCAPS = '/root/Downloads'
+
+Response = collections.namedtuple('Response', ['header', 'payload'])
+                                  
