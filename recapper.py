@@ -43,7 +43,21 @@ class Recapper:
         self.responses = []
 
     def get_response(self):
-        pass
+        for session in self.sessions:
+            payload = b''
+            for packet in self.sessions[session]:
+                try:
+                    if packet[TCP].dport == 80 or packet[TCP].sport == 80:
+                        payload += bytes(packet[TCP].payload)
+                except IndexError:
+                    sys.stdout.write('x')
+                    sys.stdout.flush()
+            
+            if payload:
+                header = get_header(payload)
+                if header is None:
+                    continue
+                self.responses.append(Response(header=header, payload=payload))
 
     def write(self, content_name):
         pass
