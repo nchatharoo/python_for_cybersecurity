@@ -24,6 +24,8 @@ filtered_words = [word for word in words if min_length <= len(word) <= max_lengt
 
 # Write to output file
 
-with open(output_file, 'w') as file:
+with open(output_file + ".txt", 'w') as file:
     for word in filtered_words:
         file.write(word + '\n')
+
+print("Content : ", output_file)
