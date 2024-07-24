@@ -3,41 +3,6 @@
 
 Welcome to my Python networking and cybersecurity scripts repository! This repository contains a collection of Python scripts that I have developed to enhance my skills and knowledge in the field of cybersecurity. Each script demonstrates fundamental concepts and techniques used in network programming and cybersecurity.
 
-## Scripts Included
-
-1. **TCP Client** (`tcp_client.py`): 
-   - A simple TCP client that connects to a specified server, sends data, and receives a response. This script demonstrates basic TCP socket programming and data exchange over a network.
-
-2. **UDP Client** (`udp_client.py`): 
-   - A straightforward UDP client that sends data to a specified server and receives a response. This script showcases the use of UDP sockets for lightweight, connectionless communication.
-
-3. **Netcat** (`netcat.py`): 
-   - A versatile network utility script inspired by the traditional Netcat tool. This script can be used to read and write data across network connections using the TCP/IP protocol. It supports features such as port listening, command execution, and file transfers.
-
-4. **TCP Server** (`tcp_server.py`): 
-   - A basic TCP server that listens for incoming connections, receives data from clients, and sends responses. This script highlights server-side socket programming and handling multiple client connections.
-
-5. **TCP Proxy** (`TCP_proxy.py`):
-   - A script that sets up a proxy to forward TCP traffic between a local and a remote host. This proxy can be used for intercepting and modifying traffic for analysis and testing. It includes functions to handle requests and responses, making it useful for understanding and manipulating protocol communications.
-
-6. **SSH Command Execution** (`ssh_cmd.py`):
-   - This script uses the Paramiko library to execute commands on a remote server over SSH. It demonstrates how to establish an SSH connection, authenticate, and execute a command on the remote server.
-
-7. **SSH Remote Command Execution** (`ssh_rcmd.py`):
-   - This script sets up an SSH connection and allows for the execution of remote commands interactively. It maintains a session to handle multiple commands.
-
-8. **SSH Server** (`ssh_server.py`):
-   - This script sets up a simple SSH server using Paramiko that listens for connections, authenticates users, and executes commands sent by the client.
-
-9. **Network Scanner** (`scanner.py`):
-   - A network scanner to discover active hosts using UDP packets and listening for ICMP, TCP and UDP responses.
-
-10. **ARP Poisoning** (`arper.py`):
-   - A script designed for ARP poisoning attacks. It allows an attacker to intercept and manipulate network traffic between a victim and the gateway, effectively placing the attacker in the middle of the communication stream (man-in-the-middle attack)
-
-11. **Email Sniffer** (`mail_sniffer.py`):
-   - This script uses Scapy to sniff network traffic on common email ports and looks for any packets containing the keywords 'user' or 'pass' (for testing purpose). When such packets are found, it prints the destination IP and the payload, which may include usernames and passwords being transmitted over the network.
-
 ## Motivation
 
 I am pursuing a career transition into cybersecurity. My goal is to leverage my programming skills and knowledge  to contribute to the field of cybersecurity. This repository serves as a testament to my dedication and motivation to enhance my skills and to prepare myself for a professional role in this exciting and vital domain.
