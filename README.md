@@ -122,12 +122,69 @@ To run any of these scripts, you will need Python installed on your system. You 
   sudo python mail_sniffer.py
   ```
 
-## Contributing
+### Volatility Memory Image Analysis Tool
 
-I welcome contributions to this repository. If you have any improvements, suggestions, or additional scripts that you would like to share, please feel free to open a pull request or submit an issue.
+This Python script is designed to streamline the process of analyzing memory images using the Volatility framework. It was inspired by challenges on root-me.org, specifically focused on forensic analysis. It allows you to run multiple Volatility plugins on a memory image, analyze the results, and generate an HTML report summarizing the findings.
 
-## Contact
+Requirements
 
-If you have any questions or would like to connect, please reach out to me at nchatharoo@icloud.com.
+    Volatility: Ensure that Volatility is installed and accessible in your system's PATH.
+    Jinja2: For generating the HTML report (pip install jinja2).
 
-Thank you for visiting my repository. I am excited to continue my journey in cybersecurity and look forward to sharing more scripts and knowledge in the future.
+Usage
+Basic Command
+
+To run the script, use the following command:
+
+bash
+
+python analyze_memory.py <path_to_memory_image>
+
+Command-Line Arguments
+
+    image_file: Path to the memory image file to analyze.
+    --output: (Optional) Specify the output HTML report file name. Default is rapport_analyse.html.
+
+Example:
+
+bash
+
+python analyze_memory.py memory.img --output analysis_report.html
+
+Interactive Plugin Selection
+
+After starting the script, you will be prompted to select the plugins you wish to run. You can select them by number or by name.
+
+Example selection:
+
+markdown
+
+1. pslist
+2. netscan
+3. filescan
+...
+Enter your selection: 1 3 envars
+
+Output
+
+The script will generate an HTML report that includes:
+
+    Timestamp: When the analysis was performed.
+    Host OS: Detected operating system of the host running the script.
+    Image OS: Detected operating system of the memory image.
+    Plugin Results: Detailed tables showing the output of each selected plugin.
+
+Example Output
+
+Supported Plugins (WIP)
+
+The following plugins are supported with custom analyzers:
+
+    pslist: Process listing.
+    netscan: Network connections.
+    filescan: File scanning.
+    malfind: Malware detection.
+    envars: Environment variables.
+    handle: Open handles.
+    cmdline: Command lines.
+    dlllist: Loaded DLLs.
